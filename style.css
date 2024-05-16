@@ -1,0 +1,178 @@
+body {
+    background-color: #3F72AF;
+    color: #F9F7F7;
+    margin: 0 auto;
+    padding-top: 100px;
+    font-family: "Open Sans", sans-serif;
+    max-width: 1200px;
+
+}
+
+nav {
+    background-color: #112D4E;
+    color: #DBE2EF;
+    text-align: right;
+    padding: 10px;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+    z-index: 1000;
+}
+
+a {
+    color: #DBE2EF;
+    text-decoration: none;
+    margin: 10px;
+}
+
+li {
+    display: inline;
+    padding: 10px;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    margin: 40px;
+    height: 300px;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+#p-header {
+    font-size: 1.5rem;
+}
+
+hr {
+    border: 1px solid #F9F7F7;
+    width: 50%;
+}
+
+img {
+    width: 450px;
+    border-radius: 10px;
+}
+
+main {
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+}
+
+#news {
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+}
+
+.news {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.news-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #112D4E;
+    color: #F9F7F7;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+    height: 400px;
+    transition: transform ease-in-out 0.3s;
+}
+
+.news-card:hover {
+    transform: scale(1.1);
+}
+
+.news-image {
+    width: 100%;
+    height: 250px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.news-link {
+    background-color: #DBE2EF;
+    color: #112D4E;
+    border-radius: 10px;
+    padding: 10px;
+    transition: background-color ease-in-out 0.3s;
+}
+
+.news-link:hover {
+    background-color: #f9f7f7;
+}
+
+#contact {
+    margin: 20px auto;
+    width: 500px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    border: 2px dashed #112D4E;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.contact-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-form div {
+    margin-bottom: 15px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #112D4E;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #446280;
+    /* Darker shade on hover */
+}
+
+footer {
+    background-color: #112D4E;
+    color: #DBE2EF;
+    text-align: center;
+    padding: 10px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
