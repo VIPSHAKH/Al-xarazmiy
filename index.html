@@ -1,107 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Al-Xorazmiy</title>
-  <link rel="stylesheet" href="./style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-    rel="stylesheet">
+  <title>Tasbeeh Counter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('https://avatars.mds.yandex.net/i?id=f4df3a30d16d7696ec5f1282e3078d24_l-5233315-images-thumbs&ref=rim&n=13&w=1600&h=800');
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: #333;
+      position: relative;
+    }
+
+    .container {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6));
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    .counter,
+    .zikr {
+      font-size: 48px;
+      margin: 20px 0;
+      font-weight: bold;
+    }
+
+    .step {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .reset-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+      color: #fff;
+      transition: transform 0.1s;
+    }
+
+    .reset-button:hover {
+      transform: scale(1.1);
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      margin: 5px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      background-color: #007bff;
+      color: white;
+      transition: background-color 0.3s, transform 0.1s;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    button:active {
+      transform: scale(0.95);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .random-message {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      font-size: 24px;
+      color: #fff;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
 </head>
-
 <body>
-  <nav>
-    <ul>
-      <li><a href="index.html">Bosh</a></li>
-      <li><a href="#about">Haqimizda</a></li>
-      <li><a href="#news">Yangiliklar</a></li>
-      <li><a href="#contact">Bog'lanish</a></li>
-    </ul>
-  </nav>
-  <header>
-    <div id="div-left">
-      <h1>Salamaleykum</h1>
-      <p id="p-header">Al Xorazmiy Vorislari Web Saytiga xush kelibsiz.</p>
+  <button class="reset-button" id="reset">🔄</button>
+  <div class="container">
+    <div class="step">
+      Step: <span id="step">0</span>
     </div>
-    <div id="div-right">
-      <img src="https://acumenstudio.com/wp-content/uploads/2013/07/girl-taking-photo1.jpg" alt="">
+    <h1>Tasbeeh Counter</h1>
+    <div class="counter animate-this">
+      <p id="count">0</p>
     </div>
-  </header>
-  <hr>
-  <main id="about">
-    <div id="news">
-      <h2>Haqimizda</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit aut nulla ex quaerat vero atque ab ad. Fugiat,
-        ipsa illo eveniet modi quas at. Voluptatibus praesentium repudiandae ullam iste quaerat. Cum, odit quod ullam
-        atque quaerat ea consequuntur cumque itaque, autem repudiandae ipsum facilis aliquid perferendis amet provident
-        pariatur quae nemo consequatur fugit. Unde, eius. Exercitationem in enim, deserunt quam molestias fugit fuga
-        dolorem sit facere reprehenderit deleniti rem quis, libero officiis! Eligendi reiciendis quis magni delectus
-        veritatis, repudiandae dolorum repellendus quod voluptatem labore eveniet iusto, explicabo similique. Veritatis
-        assumenda voluptates quisquam, repellendus delectus a at beatae nam est autem quae accusamus cupiditate aperiam
-        quibusdam ea id, deserunt, labore ab corrupti repellat? Accusantium asperiores harum omnis facere a dolor
-        exercitationem? Voluptatibus dolore ducimus voluptates quidem fugit? Aspernatur natus quis consequatur, dolorum
-        quaerat et in non optio sequi nam omnis illo architecto labore est doloremque nihil vitae reiciendis qui autem
-        porro quos vero! Illo quam in tenetur aperiam similique obcaecati laboriosam vero delectus consequuntur minus
-        earum ipsum architecto, quia tempore ea aliquid! Culpa ullam iste harum sapiente vero non tempore magnam alias
-        ab quidem debitis expedita, esse rerum suscipit veritatis in vel facilis? Magnam vel, consequuntur quos unde
-        repudiandae corporis numquam.</p>
+    <div class="zikr animate-this2">
+      <p id="zikr">Alhamdulillah</p>
     </div>
-  </main>
-  <hr>
-  <div id="news">
-    <h2>Yangiliklar</h2>
-    <ul class="news">
-      <li>
-        <div class="news-card">
-          <img src="https://get.pxhere.com/photo/man-person-girl-woman-camera-photography-portrait-spring-red-lens-color-autumn-canon-romance-season-taking-photo-photograph-beauty-emotion-photo-shoot-portrait-photography-1169775.jpg" alt="" class="news-image">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, iste!</p>
-          <a href="news1.html" class="news-link">1</a>
-        </div>
-      </li>
-      <li>
-        <div class="news-card">
-          <img src="https://webpulse.imgsmail.ru/imgpreview?mb=webpulse&key=pulse_cabinet-image-f3567eec-5759-49e3-ad96-6c6fca719266" alt=""  class="news-image">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, iste!</p>
-          <a href="news2.html" class="news-link">2</a>
-        </div>
-      </li>
-      <li>
-        <div class="news-card">
-          <img src="https://s16.stc.all.kpcdn.net/russia/wp-content/uploads/2021/05/otdosen-v-foto-girl-osen-vi-2048.jpg" alt=""  class="news-image">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, iste!</p>
-          <a href="news3.html" class="news-link">3</a>
-        </div>
-      </li>
-    </ul>
+    <button id="increment">Count</button>
   </div>
 
-  <hr>
+  <script>
+    let count = 0;
+    let step = 0;
+    const zikrs = ["Alhamdulillah", "Astaghfirullah", "Allahu Akbar"];
+    let currentZikrIndex = 0;
+    const messages = [
+  "SubhanAllah", // Glory be to God
+  "Alhamdulillah", // All praise is due to God
+  "Allahu Akbar", // God is the Greatest
+  "La ilaha illallah", // There is no god but God
+  "Astaghfirullah", // I seek forgiveness from God
+  "MashaAllah", // As God has willed
+  "InshaAllah", // If God wills
+  "Bismillah", // In the name of God
+  "JazakAllah Khair", // May God reward you with goodness
+  "Ameen", // O God, respond
+  "Rahmatullahi Alaykum", // May God's mercy be upon you
+  "Sadaqallahul Azim", // God, the Almighty, has spoken the truth
+  "Allahu nuru as-samawati wal-ard", // God is the Light of the heavens and the earth
+  "BarakAllahufik", // May God bless you
+  "Subhanaka Allahumma wa bihamdiKa" // Glory is to You, O God, and praise is Yours
+];
 
-  <div id="contact">
-    <form action="#" class="contact-form">
-      <h2>Biz bilan bog'lanish</h2>
-      <div>
-        <label for="name">Ismingiz:</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-      <div>
-        <label for="email">Emailingiz:</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div>
-        <label for="message">Xabar:</label>
-        <textarea name="message" id="message" cols="30" rows="10" required></textarea>
-      </div>
-      <button type="submit">Yuborish</button>
-    </form>
-  </div>
 
-  <footer>
-    <p>&copy; 2024 Al-Xorazmiy Vorislari Loyihasi</p>
-  </footer>
+    function contentAnimation() {
+      const randomX = Math.random() * 60 - 30;
+      const randomY = Math.random() * 60 - 30;
+
+      gsap.from(".animate-this", {
+        duration: 0.1,
+        x: randomX,
+        y: randomY,
+        opacity: 0,
+        stagger: 0.4
+      });
+    }
+
+    function contentAnimation2() {
+      gsap.from(".animate-this2", {
+        duration: 1,
+        y: 30,
+        opacity: 0,
+        stagger: 0.4
+      });
+    }
+
+    function updateCountDisplay() {
+      const countElement = document.getElementById('count');
+      countElement.innerText = count;
+      contentAnimation();
+    }
+
+    function updateZikrDisplay() {
+      const zikrElement = document.getElementById('zikr');
+      const newZikrIndex = Math.floor(count / 33) % zikrs.length;
+
+      if (newZikrIndex !== currentZikrIndex) {
+        currentZikrIndex = newZikrIndex;
+        zikrElement.innerText = zikrs[currentZikrIndex];
+        contentAnimation2();
+      }
+    }
+
+    function showRandomMessage() {
+      const messageElement = document.createElement('div');
+      messageElement.className = 'random-message';
+      messageElement.innerText = messages[Math.floor(Math.random() * messages.length)];
+      document.body.appendChild(messageElement);
+
+      const messageRect = messageElement.getBoundingClientRect();
+      const messageWidth = messageRect.width;
+      const messageHeight = messageRect.height;
+
+      const randomX = (window.innerWidth - messageWidth) / 20;
+      const randomY = 20;
+
+      gsap.fromTo(messageElement, 
+        { x: randomX, y: randomY, opacity: 0 },
+        { duration: 1, opacity: 1, onComplete: () => {
+            gsap.to(messageElement, { duration: 1, opacity: 0, onComplete: () => {
+              messageElement.remove();
+            }});
+        }}
+      );
+    }
+
+    setInterval(showRandomMessage, 5000);
+
+    document.getElementById('increment').addEventListener('click', () => {
+      count++;
+      updateCountDisplay();
+
+      if (count % 33 === 0) {
+        updateZikrDisplay();
+      }
+
+      if (count % 99 === 0) {
+        step++;
+        document.getElementById('step').innerText = step;
+      }
+    });
+
+    document.getElementById('reset').addEventListener('click', () => {
+      count = 0;
+      step = 0;
+      updateCountDisplay();
+      document.getElementById('step').innerText = step;
+      currentZikrIndex = 0;
+      document.getElementById('zikr').innerText = zikrs[currentZikrIndex];
+      contentAnimation2();
+    });
+  </script>
 </body>
-
 </html>
